@@ -1,3 +1,9 @@
 body{
     color: red;
 }
+a{
+    color: orange;
+}
+a:hover{
+    color: blue;
+}
