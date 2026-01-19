@@ -1,18 +1,20 @@
-body{
-    color:brown;
-   
-}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: brown;
 }
 
-.navbar{
+.nav-bar{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    background-color: aquamarine;
     padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 .nav-links{
     list-style: none;
@@ -21,6 +23,11 @@ body{
 }
 .nav-links a{
     text-decoration: none;
-    color: #fff;
+    color: green;
     padding: 5px 8px;
+}
+.nav-links a:hover{
+color: white;
+border-radius: 4px;
+background-color: darkgreen;
 }
