@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing</title>
+    <title>Lee County Homepage</title>
 	<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -16,9 +16,178 @@
         </ul>
      
     </nav>
+<div>
+</head>
+<body>
+
+  <!-- Search bar -->
+  <input type="text" id="searchInput" placeholder="Search...">
+  <script src="script.js"></script>
+ </div>
 
 </header>
-    <h1>Testing heading</h1>
-    <p>Testing</p>
+<div class="hero">
+
+    <div class="slideshow-container">
+
+        <div class="slide fade">
+            <img src="Images/fort_myers_beach_florida_0.jpg" alt="Beach">
+        </div>
+        <div class="slide fade">
+            <img src="Images/marina_water_boat_tourism.jpg" alt="Water">
+        </div>
+        <div class="slide fade">
+            <img src="Images/prettywater.jpg">
+        </div>
+        <div class="slide fade">
+            <img src="Images/photo-of-late-night-water.avif">
+        </div>
+        <div class="slide fade">
+            <img src="Images/silhoetteimages.avif">
+        </div>
+    </div>
+
+    <div class="hero-text">
+        <h1>Welcome to Lee County!</h1>
+        <p>Discover beaches, events, and community resources.</p>
+    </div>
+</div>
+    <script src="script.js"></script>
+<!--Calendar-->
+<section class="calendar-section">
+  <h2>Event Calendar</h2><br>
+
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <button id="prevMonth">&#8592;</button>
+      <h3 id="monthYear"></h3>
+      <button id="nextMonth">&#8594;</button>
+    </div>
+
+    <table class="calendar">
+      <thead>
+        <tr>
+          <th>S</th>
+          <th>M</th>
+          <th>T</th>
+          <th>W</th>
+          <th>T</th>
+          <th>F</th>
+          <th>S</th>
+        </tr>
+      </thead>
+      <tbody id="calendarBody">
+      </tbody>
+    </table>
+  </div>
+
+  <div class="event-list">
+    <h3>Events</h3>
+    <ul id="eventList"></ul>
+  </div>
+</section>
+
+<!--Months-->
+<script>
+const calendarBody = document.getElementById("calendarBody");
+const monthYear = document.getElementById("monthYear");
+const eventList = document.getElementById("eventList");
+
+let currentDate = new Date();
+
+const events = {
+  "2026-02-28": [
+    "Fort Myers Farmers Market - Every Saturday!",
+    "Family Initiative Autism Walk 2026"
+  ]
+};
+
+function renderCalendar(date) {
+  calendarBody.innerHTML = "";
+  const year = date.getFullYear();
+  const month = date.getMonth();
+
+  monthYear.textContent = date.toLocaleString("default", {
+    month: "long",
+    year: "numeric"
+  });
+
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  let row = document.createElement("tr");
+
+  for (let i = 0; i < firstDay; i++) {
+    row.appendChild(document.createElement("td"));
+  }
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    if (row.children.length === 7) {
+      calendarBody.appendChild(row);
+      row = document.createElement("tr");
+    }
+
+    const cell = document.createElement("td");
+    cell.textContent = day;
+
+    const today = new Date();
+    if (
+      day === today.getDate() &&
+      month === today.getMonth() &&
+      year === today.getFullYear()
+    ) {
+      cell.classList.add("today");
+    }
+
+    cell.addEventListener("click", () => {
+      const dateKey = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+      showEvents(dateKey);
+    });
+
+    row.appendChild(cell);
+  }
+
+  calendarBody.appendChild(row);
+}
+
+function showEvents(dateKey) {
+  eventList.innerHTML = "";
+  if (events[dateKey]) {
+    events[dateKey].forEach(event => {
+      const li = document.createElement("li");
+      li.textContent = event;
+      eventList.appendChild(li);
+    });
+  } else {
+    const li = document.createElement("li");
+    li.textContent = "No events for this day.";
+    eventList.appendChild(li);
+  }
+}
+
+document.getElementById("prevMonth").addEventListener("click", () => {
+  currentDate.setMonth(currentDate.getMonth() - 1);
+  renderCalendar(currentDate);
+});
+
+document.getElementById("nextMonth").addEventListener("click", () => {
+  currentDate.setMonth(currentDate.getMonth() + 1);
+  renderCalendar(currentDate);
+});
+
+renderCalendar(currentDate);
+</script>
+<div style="text-align: center; color: #000000;">
+    <p><strong><a href="form.html">Suggestions or Questions?</a></strong></p><br><br>
+</div>
 </body>
+<footer>
+    <nav style="background-color: #000000; color:white; text-align: center; padding: 10px;">
+        <br>
+        <a href="Reference.html" class="FooterNav">Reference Page</a>
+        <a href="About.html" class="FooterNav">About Us</a>
+        <a href="index.html" class="FooterNav">Homepage</a>
+        <br><br>
+    </nav>
+</footer>
 </html>
