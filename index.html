@@ -22,7 +22,20 @@
 
   <!-- Search bar -->
   <input type="text" id="searchInput" placeholder="Search...">
-  <script src="script.js"></script>
+  <script>
+    
+    const searchInput = document.getElementById("searchInput");
+    const itemList = document.getElementById("itemList");
+    const items = itemList.getElementsByTagName("li");
+
+    searchInput.addEventListener("input", function() {
+      const filter = searchInput.value.toLowerCase();
+      for (let i = 0; i < items.length; i++) {
+        const text = items[i].textContent.toLowerCase();
+        items[i].style.display = text.includes(filter) ? "" : "none";
+      }
+    });
+  </script>
  </div>
 
 </header>
@@ -53,7 +66,7 @@
         <p>Discover beaches, events, and community resources.</p>
     </div>
 </div>
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 <!--Calendar-->
 <section class="calendar-section">
   <h2>Event Calendar</h2><br>
