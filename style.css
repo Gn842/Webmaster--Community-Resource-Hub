@@ -398,4 +398,11 @@ img{
   border-radius: 6px;
   border: 1px solid #ccc;
   box-sizing: border-box;
+
   }
+
+.webicon{
+    width:150px;
+    align-items:center;
+    display:inline;
+}
