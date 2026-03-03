@@ -398,31 +398,35 @@ img{
   border-radius: 6px;
   border: 1px solid #ccc;
   box-sizing: border-box;
-  }
+}
 
-  .form-container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 40px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    font-family: Arial, sans-serif;
-  }
+.form-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
 
-  form h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-  }
+form h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
-  form label {
-    display: block;
-    margin-bottom: 8px;
-    color: #444;
-    font-weight: bold;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-  } 
+form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #444;
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
-  
+.webicon {
+  width: 150px;
+  align-items: center;
+  display: inline;
+}
