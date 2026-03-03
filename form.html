@@ -15,28 +15,31 @@
             <li><a href="about.html">About Us</a></li>
         </ul>
     </nav>
-   <br><br><br><br><br><br> 
-    <h1 class="websiteTitle" style="text-align: center;">Contact Us</h1><br><br><br><br><br><br>
-    <div style="text-align: center;">
-    <form>
-        <label for=”suggestions”>Do you have any suggestions or tips for improving our community?</label><br><br>
-        <input type=”text” id=”suggestions” name=”suggestions”><br><br><br>
+   <br>
+    <h1 class="websiteTitle" style="text-align: center;"></h1><br>
+    <div class="form-container">
+        <form action="https://formspree.io/f/xlgwywao" method="POST">
+            <h2>Contact Us</h2>
 
-        <label for=”qcc”>Do you have any questions, comments, or concerns about anything in our community?</label><br><br>
-        <input type=”text” id=”qcc” name=”qcc”><br><br><br>
-
-        <label for=”email”>If you would like, you can put your email here so we can reach you regarding your response. (optional)</label><br><br>
-        <input type=”text” id=”email” name=”email”><br><br><br>
-
-        <label for=”feedback”>Do you have any feedback on the website? Is the information easily accessible?</label><br><br>
-        <input type=”text” id=”feedback” name=”feedback”><br><br><br>
-        <input class="submit" type="submit" value="Submit"><br><br><br>
-    </form>
+            <label for="suggestions">Do you have any suggestions or tips for improving our community?</label><br><br>
+            <textarea id="suggestions" name="suggestions" rows="4" placeholder="Write your suggestions here"></textarea><br><br><br>
+        
+            <label for="qcc">Do you have any questions, comments, or concerns about anything in our community?</label><br><br>
+            <textarea id="qcc" name="qcc" rows="4" placeholder="Write your questions, comments, or concerns here"></textarea><br><br><br>
+        
+            <label for="email">If you would like, you can put your email here so we can reach you regarding your response. If not, please leave the text box blank. (optional)</label><br><br>
+            <input type="email" id="email" name="email" placeholder="you@example.com (optional)"><br><br><br>
+        
+            <label for="feedback">Do you have any feedback on the website? Is the information easily accessible?</label><br><br>
+            <textarea id="feedback" name="feedback" rows="4" placeholder="Write your feedback here"></textarea><br><br><br>
+        
+            <button class="submit" type="submit">Submit</button><br><br><br>
+        </form>
     </div>
 
 </body>
 <footer>
-    <nav style="background-color: #000000; color:white; text-align: center; padding: 10px;">
+    <nav style="background-color: #000000; color:rgb(255, 255, 255); text-align: center; padding: 10px;">
         <br>
         <a href="Reference.html" class="FooterNav">Reference Page</a>
         <a href="About.html" class="FooterNav">About Us</a>
