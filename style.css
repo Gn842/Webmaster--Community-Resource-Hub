@@ -480,7 +480,16 @@ form label {
   margin-bottom: 8px;
   color: #444;
   font-weight: bold;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Arial, sans-serif;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
 .webicon {
