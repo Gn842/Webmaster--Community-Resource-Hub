@@ -39,8 +39,8 @@
  </div>
 
 </header>
-
-<div class="hero">
+<!--Lee County Photos-->
+<div class="leePhotos">
 
     <div class="slideshow-container">
 
@@ -61,7 +61,7 @@
         </div>
     </div>
 
-    <div class="hero-text">
+    <div class="slide-text">
         <h1>Welcome to Lee County!</h1>
         <p>Discover beaches, events, and community resources.</p>
     </div>
@@ -70,7 +70,11 @@
 <!--Calendar-->
 <section class="calendar-section">
   <h2>Event Calendar</h2><br>
-
+  <div class="addingEvents">
+    <input type="text" id = "eventInput" placeholder="Add New Events">
+    <button id="addEventsButn"> Add Events</button>
+  </div>
+  
   <div class="calendar-container">
     <div class="calendar-header">
       <button id="prevMonth">&#8592;</button>
@@ -81,33 +85,67 @@
     <table class="calendar">
       <thead>
         <tr>
-          <th>S</th>
-          <th>M</th>
-          <th>T</th>
-          <th>W</th>
-          <th>T</th>
-          <th>F</th>
-          <th>S</th>
+          <th>SUN</th>
+          <th>MON</th>
+          <th>TUE</th>
+          <th>WED</th>
+          <th>THUR</th>
+          <th>FRI</th>
+          <th>SAT</th>
         </tr>
       </thead>
       <tbody id="calendarBody">
       </tbody>
     </table>
   </div>
-
-  <div class="event-list">
-    <h3>Events</h3>
-    <ul id="eventList"></ul>
+  <br>
+  <div>
+    <ul class="tabs">
+      <li data-tab-target="#eventsTab" class=" active tab">Events</li>
+      <li>| <br>|</li>
+      <li data-tab-target="#newsTab" class="tab">News</li>
+    </ul>
+    <div class="tab-content">
+      <div id="eventsTab" data-tab-content class="active">
+        <h1>Events</h1>
+        <ul class="event-list" id="eventList"></ul>
+        <p>Click a date to see events</p>
+        <br>
+      </div>
+      <div id="newsTab" data-tab-content>
+        <h1>News</h1><br>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat a vel unde quas commodi. Excepturi sequi, omnis eaque alias dolorum aut voluptates ipsa dicta error, debitis voluptatum. Illum, in iusto!</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa consequatur quidem beatae, modi eaque et, neque at illo molestiae quis doloremque, assumenda autem mollitia tenetur laudantium excepturi! Est, soluta perferendis.</p>
+      </div>
+    </div>
+    <script>
+      const tabs = document.querySelectorAll('[data-tab-target]')
+      const tabContents = document.querySelectorAll('[data-tab-content]')
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          const target = document.querySelector(tab.dataset.tabTarget)
+          tabContents.forEach(tabContent => {
+            tabContent.classList.remove('active')
+          })
+          tabs.forEach(tab => {
+            tab.classList.remove('active')
+          })
+          tab.classList.add('active')
+          target.classList.add('active')
+        })
+      }) 
+    </script>
   </div>
 </section>
 
-<!--Months-->
 <script>
 const calendarBody = document.getElementById("calendarBody");
 const monthYear = document.getElementById("monthYear");
 const eventList = document.getElementById("eventList");
 
 let currentDate = new Date();
+let selectedDate = null;
 
 const events = {
   "2026-02-28": [
@@ -154,8 +192,8 @@ function renderCalendar(date) {
     }
 
     cell.addEventListener("click", () => {
-      const dateKey = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-      showEvents(dateKey);
+      selectedDate = '${year} ${String(month + 1).padStart(2, "0")}';
+      showEvents(selectedDate);
     });
 
     row.appendChild(cell);
@@ -188,7 +226,26 @@ document.getElementById("nextMonth").addEventListener("click", () => {
   currentDate.setMonth(currentDate.getMonth() + 1);
   renderCalendar(currentDate);
 });
+document.getElementById("addEventsButn").addEventListener("click", () => {
+  const input = document.getElementById("eventInput");
+  const newEvent = input.value.trim();
 
+  if (!selectedDate){
+    alert("Please choose a date first");
+    return;
+  }
+  if (newEvent == ""){
+    alert("Event cannot be empty");
+    return;
+  }
+  if (!events[selectedDate]) {
+    events[selectedDate] = [];
+  }
+
+  events[selectedDate].push(newEvent);
+  input.value = "";
+  showEvents(selectedDate);
+});
 renderCalendar(currentDate);
 </script>
 <div style="text-align: center; color: #000000;">

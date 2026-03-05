@@ -83,12 +83,97 @@ img{
     to {opacity: 1;}
 }
 
+
+.leePhotos {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+
+.leePhotos::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+}
+
+
+.slide-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+
+.slide-text h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.slide-text p {
+    font-size: 1.2rem;
+}
+
+
+.slideshow-container {
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .calendar-section {
   width: 80%;
   margin: 40px auto;
   text-align: center;
 }
-
+.addingEvents {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+#eventInput{
+  padding: 10px 12px;
+  width: 250px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+#eventInput:focus{
+  outline: none;
+  border-color: #0077cc;
+  box-shadow: 0 0 5px rgba(0, 119, 204, 0.4);
+}
+#addEventsButn{
+  padding: 10px 16px;
+  border: none;
+  background-color: #0077cc;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+#addEventsButn:hover{
+  background-color: #005fa3;
+  transform: translateY(-2px);
+}
+#addEventsButn:active{
+  transform: translateY(0px);
+}
 .calendar-container {
   background: #f4f4f4;
   padding: 20px;
@@ -147,56 +232,29 @@ img{
   list-style: none;
   padding: 0;
 }
-
-
-.hero {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
+[data-tab-content] {
+  display: none;
 }
-
-
-.hero::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* dark transparent layer */
+.active[data-tab-content] {
+  display: block;
 }
-
-
-.hero-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    z-index: 2;
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #000;
 }
-
-.hero-text h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
+.tab{
+  cursor: pointer;
+  padding: 10px;
 }
-
-.hero-text p {
-    font-size: 1.2rem;
+.tab:active{
+  background-color: #ccc;
 }
-
-
-.slideshow-container {
-    height: 100%;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.tab:hover {
+  background-color: #aaa;
 }
 
 .timeline-container {
